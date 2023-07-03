@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ede6e6;
+    width: 800px;
+    height: 800px;
+    margin: 0 auto;
+}
