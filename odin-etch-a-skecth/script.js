@@ -6,6 +6,8 @@ function generateGrid() {
   const grids = [];
   const amount = Number(gridAmount.value);
 
+  if (amount > 100) return alert("Cannot create grid 100x100");
+
   for (let i = 0; i < amount ** 2; i++) {
     const grid = document.createElement("div");
     grid.setAttribute("id", i + 1);
