@@ -2,6 +2,24 @@ const gridAmount = document.querySelector("input[name=grid-amount]");
 const changeGrid = document.querySelector("button[name=create-grid]");
 changeGrid.addEventListener("click", generateGrid);
 
+const grid = document.querySelectorAll(".container");
+grid.forEach((g) => {
+  g.addEventListener("mouseover", randomBg);
+});
+
+function randomBg(e) {
+  const bgColor = window
+    .getComputedStyle(e.target, null)
+    .getPropertyValue("background-color");
+  let [r, g, b, a] = bgColor.match(/[\d\.]+/g);
+
+  r = Math.floor(Math.random() * 256);
+  g = Math.floor(Math.random() * 256);
+  b = Math.floor(Math.random() * 256);
+  a = Number(a) + 0.1;
+  e.target.style.backgroundColor = `rgba(${r},${g},${b},${a})`;
+}
+
 function generateGrid() {
   const grids = [];
   const amount = Number(gridAmount.value);
