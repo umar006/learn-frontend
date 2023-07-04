@@ -1,5 +1,5 @@
 const gridAmount = document.querySelector("input[name=grid-amount]");
-const changeGrid = document.querySelector("button[name=change-grid]");
+const changeGrid = document.querySelector("button[name=create-grid]");
 changeGrid.addEventListener("click", generateGrid);
 
 function generateGrid() {
