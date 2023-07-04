@@ -13,6 +13,8 @@ function randomBg(e) {
     .getPropertyValue("background-color");
   let [r, g, b, a] = bgColor.match(/[\d\.]+/g);
 
+  if (a >= 1) return;
+
   r = Math.floor(Math.random() * 256);
   g = Math.floor(Math.random() * 256);
   b = Math.floor(Math.random() * 256);
