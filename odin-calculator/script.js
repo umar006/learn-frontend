@@ -1,3 +1,11 @@
+const field = document.querySelector("#container input");
+const numpad = document.querySelectorAll("#numpad button");
+numpad.forEach(numpad => {
+    numpad.addEventListener("click", function inputValue(e) {
+        field.value += e.target.textContent;
+    });
+});
+
 function operate(firstNumber, secondNumber, operator) {
   switch (operator) {
     case "+":
