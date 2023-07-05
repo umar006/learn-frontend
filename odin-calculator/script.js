@@ -1,9 +1,16 @@
 const field = document.querySelector("#container input");
 const numpad = document.querySelectorAll("#numpad button");
-numpad.forEach(numpad => {
-    numpad.addEventListener("click", function inputValue(e) {
-        field.value += e.target.textContent;
-    });
+numpad.forEach((numpad) => {
+  numpad.addEventListener("click", function inputValue(e) {
+    const value = e.target.textContent;
+
+    if (value === "clear") {
+      field.value = "";
+      return;
+    }
+
+    field.value += value;
+  });
 });
 
 function operate(firstNumber, secondNumber, operator) {
