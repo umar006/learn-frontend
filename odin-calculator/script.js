@@ -2,12 +2,15 @@ const field = document.querySelector("#container input");
 const numpad = document.querySelectorAll("#numpad button");
 numpad.forEach((numpad) => {
   numpad.addEventListener("click", function inputValue(e) {
-    const value = e.target.textContent;
+    let value = e.target.textContent;
 
     if (value === "clear") {
       field.value = "";
       return;
     }
+
+    const operators = ["+", "-", "*", "/"];
+    if (operators.includes(value)) value = ` ${value} `;
 
     field.value += value;
   });
