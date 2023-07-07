@@ -9,27 +9,27 @@ const operatorPrecedence = {
 const field = document.querySelector("#container input");
 const numpad = document.querySelectorAll("#numpad button");
 numpad.forEach((numpad) => {
-  numpad.addEventListener("click", function inputValue(e) {
-    let value = e.target.textContent;
+  numpad.addEventListener("click", function input(e) {
+    let inputValue = e.target.textContent;
 
-    if (!field.value.length && operators.includes(value)) {
+    if (!field.value.length && operators.includes(inputValue)) {
       return;
     }
 
-    if (operators.includes(value)) value = ` ${value} `;
+    if (operators.includes(inputValue)) inputValue = ` ${inputValue} `;
 
-    if (value === "=") {
+    if (inputValue === "=") {
       const input = field.value.split(" ");
       field.value = calculate(input);
       return;
     }
 
-    if (value === "clear") {
+    if (inputValue === "clear") {
       field.value = "";
       return;
     }
 
-    field.value += value;
+    field.value += inputValue;
   });
 });
 
