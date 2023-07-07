@@ -12,6 +12,10 @@ numpad.forEach((numpad) => {
   numpad.addEventListener("click", function inputValue(e) {
     let value = e.target.textContent;
 
+    if (!field.value.length && operators.includes(value)) {
+      return;
+    }
+
     if (operators.includes(value)) value = ` ${value} `;
 
     if (value === "=") {
