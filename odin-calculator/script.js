@@ -25,7 +25,7 @@ numpad.forEach((numpad) => {
     }
 
     if (inputValue === "clear") {
-      field.value = "";
+      field.value = "0";
       return;
     }
 
