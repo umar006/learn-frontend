@@ -11,16 +11,20 @@ const numpad = document.querySelectorAll("#numpad button");
 numpad.forEach((numpad) => {
   numpad.addEventListener("click", function input(e) {
     let inputValue = e.target.textContent;
+    const fieldValue = field.value;
 
-    if (!field.value.length && operators.includes(inputValue)) {
+    if (!fieldValue.length && operators.includes(inputValue)) {
       return;
     }
 
-    if (operators.includes(inputValue)) inputValue = ` ${inputValue} `;
+    if (operators.includes(inputValue)) {
+      field.value += ` ${inputValue} `;
+      return;
+    }
 
     if (inputValue === "=") {
-      const input = field.value.split(" ");
-      field.value = calculate(input);
+      const input = fieldValue.split(" ");
+      field.value = calculate(input).toFixed(2);
       return;
     }
 
